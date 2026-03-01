@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9166891-0fd8-4a94-8d9f-c838ae78513d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--02-create-product-category.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--03-create-product-table.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b/storage_v2/_src_/database/seller_database.O_JGTw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b/storage_v2/_src_/database/seller_database.O_JGTw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b/storage_v2/_src_/database/seller_database.O_JGTw/schema/seller_application.kGwRvQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/55d45e69-45ba-468b-ae33-4850a80a104b/storage_v2/_src_/database/seller_database.O_JGTw/schema/seller_application.kGwRvQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--01-create-seller-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--01-create-seller-table.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +41,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.seller-service [clean].executor": "Run",
+    "Maven.seller-service [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -74,6 +81,10 @@
       </method>
     </configuration>
     <configuration name="SellerServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="DB_USERNAME" value="postgres" />
+        <env name="DB_PASSWORD" value="16524790" />
+      </envs>
       <module name="seller-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.badgers.sellerservice.SellerServiceApplication" />
       <method v="2">
@@ -99,7 +110,7 @@
       <updated>1772379733862</updated>
       <workItem from="1772379735232" duration="1315000" />
       <workItem from="1772395526201" duration="30000" />
-      <workItem from="1772395941745" duration="3159000" />
+      <workItem from="1772395941745" duration="6051000" />
     </task>
     <servers />
   </component>
