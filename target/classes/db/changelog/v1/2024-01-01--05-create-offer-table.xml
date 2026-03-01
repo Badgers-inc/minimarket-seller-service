@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="5" author="ekaterina">
+        <createTable tableName="offer" schemaName="seller_application">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="UUID">
+                <constraints nullable="false"
+                             foreignKeyName="fk_offer_product"
+                             referencedTableName="product"
+                             referencedColumnNames="id"
+                             referencedTableSchemaName="seller_application"/>
+            </column>
+            <column name="seller_id" type="UUID">
+                <constraints nullable="false"
+                             foreignKeyName="fk_offer_seller"
+                             referencedTableName="seller"
+                             referencedColumnNames="id"
+                             referencedTableSchemaName="seller_application"/>
+            </column>
+            <column name="price" type="numeric(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamptz" defaultValueComputed="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamptz"/>
+            <column name="active" type="boolean" defaultValue="true">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="idx_offer_product_seller_unique"
+                     tableName="offer"
+                     schemaName="seller_application"
+                     unique="true">
+            <column name="product_id"/>
+            <column name="seller_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -10,27 +10,20 @@
             <column name="id" type="UUID">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(100)">
+            <column name="product_name" type="varchar(70)">
                 <constraints nullable="false"/>
             </column>
-            <column name="category_id" type="bigint">
-                <constraints nullable="false"
-                             foreignKeyName="fk_product_category"
-                             referencedTableName="product_category"
-                             referencedColumnNames="id"
-                             referencedTableSchemaName="seller_application"/>
-            </column>
-            <column name="seller_id" type="UUID">
-                <constraints nullable="false"
-                             foreignKeyName="fk_product_seller"
-                             referencedTableName="seller"
-                             referencedColumnNames="id"
-                             referencedTableSchemaName="seller_application"/>
-            </column>
-            <column name="quantity" type="int" defaultValue="0">
+            <column name="description" type="varchar(3000)">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="numeric(10, 2)">
+            <column name="article_number" type="varchar(30)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamptz" defaultValueComputed="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamptz"/>
+            <column name="active" type="boolean" defaultValue="true">
                 <constraints nullable="false"/>
             </column>
         </createTable>
