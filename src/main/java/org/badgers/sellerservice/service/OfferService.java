@@ -22,10 +22,6 @@ public class OfferService {
     private final SellerRepository sellerRepository;
     private final ProductRepository productRepository;
 
-    /**
-     * Создание предложения строго по ТЗ.
-     * Складские остатки в локальной БД не хранятся.
-     */
     @Transactional
     public Long createOffer(OfferCreateRequest request, UUID sellerId) {
         // 1. Поиск продавца
@@ -36,7 +32,7 @@ public class OfferService {
         ProductEntity product = productRepository.findById(request.getProductId())
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + request.getProductId()));
 
-        // 3. Создание сущности (без quantity, только поля из таблицы offer)
+        // 3. Создание сущности
         OfferEntity offer = OfferEntity.builder()
                 .product(product)
                 .seller(seller)

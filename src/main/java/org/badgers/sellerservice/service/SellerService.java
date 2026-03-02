@@ -38,7 +38,6 @@ public class SellerService {
     @Transactional
     public void deleteSeller(UUID id) {
         // "дезактивация", если в таблице нет поля active,
-        // пока физическое удаление или просто заглушка
         sellerRepository.deleteById(id);
     }
 }

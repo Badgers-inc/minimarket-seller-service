@@ -19,7 +19,8 @@ public class OfferEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // biginteger в ТЗ
+    private Long id;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
@@ -41,5 +42,5 @@ public class OfferEntity {
     private OffsetDateTime updatedAt;
 
     @Column(name = "active", nullable = false)
-    private boolean active; // Обязательно
+    private boolean active;
 }

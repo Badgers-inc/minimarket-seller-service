@@ -15,13 +15,6 @@ public class OfferController {
 
     private final OfferService offerService;
 
-    /**
-     * Создание нового предложения (оффера).
-     * Согласно ТЗ:
-     * - Эндпоинт: POST /api/v1/offers
-     * - Требуется хедер X-Auth-User-ID
-     * - Возвращает ID типа biginteger (Long)
-     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long createOffer(

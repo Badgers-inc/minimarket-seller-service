@@ -3,7 +3,7 @@ POST http://localhost:8080/api/v1/sellers
 Content-Type: application/json
 
 {
-  "name": "Lombok Master Store"
+  "name": "Badger Master Store"
 }
 
 ### 2. Получить всех
