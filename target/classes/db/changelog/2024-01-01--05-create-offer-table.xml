@@ -6,32 +6,32 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
     <changeSet id="5" author="ekaterina">
-        <createTable tableName="offer" schemaName="seller_application">
-            <column name="id" type="bigint" autoIncrement="true">
+        <createTable tableName="offer" schemaName="seller_application" remarks="Предложения продавцов">
+            <column name="id" type="bigint" autoIncrement="true" remarks="Идентификатор, генерируется">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="product_id" type="UUID">
+            <column name="product_id" type="UUID" remarks="Ссылка на товар">
                 <constraints nullable="false"
                              foreignKeyName="fk_offer_product"
                              referencedTableName="product"
                              referencedColumnNames="id"
                              referencedTableSchemaName="seller_application"/>
             </column>
-            <column name="seller_id" type="UUID">
+            <column name="seller_id" type="UUID" remarks="Ссылка на продавца товаров">
                 <constraints nullable="false"
                              foreignKeyName="fk_offer_seller"
                              referencedTableName="seller"
                              referencedColumnNames="id"
                              referencedTableSchemaName="seller_application"/>
             </column>
-            <column name="price" type="numeric(10, 2)">
+            <column name="price" type="numeric(10, 2)" remarks="Цена за единицу">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="timestamptz" defaultValueComputed="current_timestamp">
+            <column name="created_at" type="timestamptz" defaultValueComputed="current_timestamp" remarks="Дата и время создания записи">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_at" type="timestamptz"/>
-            <column name="active" type="boolean" defaultValue="true">
+            <column name="updated_at" type="timestamptz" remarks="Дата и время обновления записи"/>
+            <column name="active" type="boolean" defaultValue="true" remarks="Активна ли запись">
                 <constraints nullable="false"/>
             </column>
         </createTable>
