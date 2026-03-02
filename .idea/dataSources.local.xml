@@ -15,7 +15,10 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="seller_database">
-              <node kind="schema" qname="public" />
+              <node kind="schema">
+                <name qname="public" />
+                <name qname="seller_application" />
+              </node>
             </node>
             <node kind="database" qname="postgres" />
           </node>

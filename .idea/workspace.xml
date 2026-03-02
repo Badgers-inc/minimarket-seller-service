@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9166891-0fd8-4a94-8d9f-c838ae78513d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--01-create-seller-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--01-create-seller-table.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--02-create-product-category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--02-create-product-category.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--03-create-product-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--03-create-product-table.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--04-create-product-category-link.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--04-create-product-category-link.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--05-create-offer-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v1/2024-01-01--05-create-offer-table.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +60,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\unive\OneDrive\Documents\GitHub\minimarket-seller-service\src\main\resources\db\changelog" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="minimarket-seller-service" />
@@ -108,7 +110,7 @@
       <workItem from="1772379735232" duration="1315000" />
       <workItem from="1772395526201" duration="30000" />
       <workItem from="1772395941745" duration="8153000" />
-      <workItem from="1772436329785" duration="1689000" />
+      <workItem from="1772436329785" duration="2306000" />
     </task>
     <servers />
   </component>
