@@ -1,0 +1,52 @@
+### 1. Создать продавца
+POST http://localhost:8080/api/v1/sellers
+Content-Type: application/json
+
+{
+  "name": "Lombok Master Store"
+}
+
+### 2. Получить всех
+GET http://localhost:8080/api/v1/sellers
+
+### 3. Получить информацию "о себе" (имитируем работу Gateway)
+### Подставь сюда UUID, который пришел из первого запроса
+GET http://localhost:8080/api/v1/sellers/me
+X-Auth-User-ID: 1220d249-5749-4b71-90a2-6f818c17e22e
+
+### 4. Удалить продавца
+DELETE http://localhost:8080/api/v1/sellers/1220d249-5749-4b71-90a2-6f818c17e22e
+
+
+### 1. Создать новый товар
+# Возвращает UUID созданного товара
+POST http://localhost:8080/api/v1/products
+Content-Type: application/json
+
+{
+  "productName": "Мед диких барсуков",
+  "description": "Собрано вручную в экологически чистых районах",
+  "articleNumber": "BADGER-HONEY-001"
+}
+
+### 2. Получить список всех активных товаров
+# Метод возвращает только те товары, у которых active = true
+GET http://localhost:8080/api/v1/products
+
+### 3. Получить конкретный товар по ID
+# Подставь UUID, полученный в шаге №1
+GET http://localhost:8080/api/v1/products/22dbae52-778d-42a3-a4af-e02ca93de8c1
+
+### 4. Обновить данные товара (Название и Описание)
+# PUT используется для изменения этих полей
+PUT http://localhost:8080/api/v1/products/СЮДА_UUID_ТОВАРА
+Content-Type: application/json
+
+{
+  "productName": "Мед ОЧЕНЬ диких барсуков",
+  "description": "Описание обновлено: теперь еще больше пользы"
+}
+
+### 5. Дезактивировать товар
+# DELETE помечен как "Дезактивация" (установка active = false)
+DELETE http://localhost:8080/api/v1/products/СЮДА_UUID_ТОВАРА

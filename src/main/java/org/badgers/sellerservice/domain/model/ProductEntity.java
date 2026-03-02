@@ -23,14 +23,16 @@ public class ProductEntity {
     @Column(name = "article_number", nullable = false, unique = true, length = 30)
     private String articleNumber;
 
+    @org.hibernate.annotations.CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
+    @org.hibernate.annotations.UpdateTimestamp
     @Column(name = "updated_at")
     private OffsetDateTime updatedAt;
 
     @Column(nullable = false)
-    private Boolean active;
+    private boolean active;
 
     @ManyToMany
     @JoinTable(
