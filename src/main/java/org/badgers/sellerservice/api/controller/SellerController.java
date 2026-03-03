@@ -2,7 +2,7 @@ package org.badgers.sellerservice.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.badgers.sellerservice.api.dto.SellerCreateRequest;
-import org.badgers.sellerservice.domain.model.SellerEntity;
+import org.badgers.sellerservice.domain.model.Seller;
 import org.badgers.sellerservice.service.SellerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,17 +24,17 @@ public class SellerController {
     }
 
     @GetMapping
-    public List<SellerEntity> getAllSellers() {
+    public List<Seller> getAllSellers() {
         return sellerService.getAllSellers();
     }
 
     @GetMapping("/{id}")
-    public SellerEntity getSellerById(@PathVariable UUID id) {
+    public Seller getSellerById(@PathVariable UUID id) {
         return sellerService.getSellerById(id);
     }
 
     @GetMapping("/me")
-    public SellerEntity getMe(@RequestHeader("X-Auth-User-ID") UUID userId) {
+    public Seller getMe(@RequestHeader("X-Auth-User-ID") UUID userId) {
         return sellerService.getSellerById(userId);
     }
 

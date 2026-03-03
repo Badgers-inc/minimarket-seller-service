@@ -20,7 +20,7 @@ public class OfferController {
     public Long createOffer(
             @RequestHeader("X-Auth-User-ID") UUID sellerId,
             @RequestBody OfferCreateRequest request) {
-        // Передаем параметры в том порядке, в котором они объявлены в OfferService
+
         return offerService.createOffer(request, sellerId);
     }
 }

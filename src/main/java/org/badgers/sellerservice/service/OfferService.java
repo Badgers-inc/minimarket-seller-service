@@ -3,9 +3,9 @@ package org.badgers.sellerservice.service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.badgers.sellerservice.api.dto.OfferCreateRequest;
-import org.badgers.sellerservice.domain.model.OfferEntity;
-import org.badgers.sellerservice.domain.model.ProductEntity;
-import org.badgers.sellerservice.domain.model.SellerEntity;
+import org.badgers.sellerservice.domain.model.Offer;
+import org.badgers.sellerservice.domain.model.Product;
+import org.badgers.sellerservice.domain.model.Seller;
 import org.badgers.sellerservice.domain.repository.OfferRepository;
 import org.badgers.sellerservice.domain.repository.ProductRepository;
 import org.badgers.sellerservice.domain.repository.SellerRepository;
@@ -24,24 +24,24 @@ public class OfferService {
 
     @Transactional
     public Long createOffer(OfferCreateRequest request, UUID sellerId) {
-        // 1. Поиск продавца
-        SellerEntity seller = sellerRepository.findById(sellerId)
+
+        Seller seller = sellerRepository.findById(sellerId)
                 .orElseThrow(() -> new EntityNotFoundException("Seller not found with id: " + sellerId));
 
-        // 2. Поиск товара
-        ProductEntity product = productRepository.findById(request.getProductId())
+
+        Product product = productRepository.findById(request.getProductId())
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + request.getProductId()));
 
-        // 3. Создание сущности
-        OfferEntity offer = OfferEntity.builder()
+
+        Offer offer = Offer.builder()
                 .product(product)
                 .seller(seller)
                 .price(request.getPrice())
-                .active(true) // Поле обязательно
+                .active(true)
                 .build();
 
-        // 4. Сохранение и возврат ID (тип Long)
-        OfferEntity savedOffer = offerRepository.save(offer);
+
+        Offer savedOffer = offerRepository.save(offer);
 
         return savedOffer.getId();
     }

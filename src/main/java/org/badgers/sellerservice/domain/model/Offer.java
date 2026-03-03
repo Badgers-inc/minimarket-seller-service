@@ -12,23 +12,25 @@ import java.time.OffsetDateTime;
 @Table(name = "offer", schema = "seller_application")
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OfferEntity {
+public class Offer {
 
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
+    private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "seller_id", nullable = false)
-    private SellerEntity seller;
+    private Seller seller;
 
     @Column(name = "price", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
@@ -42,5 +44,6 @@ public class OfferEntity {
     private OffsetDateTime updatedAt;
 
     @Column(name = "active", nullable = false)
-    private boolean active;
+    @Builder.Default
+    private boolean active = true;
 }

@@ -8,10 +8,17 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "product", schema = "seller_application")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class ProductEntity {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = "categories")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @EqualsAndHashCode.Include
     private UUID id;
 
     @Column(name = "product_name", nullable = false, length = 70)
@@ -32,14 +39,15 @@ public class ProductEntity {
     private OffsetDateTime updatedAt;
 
     @Column(nullable = false)
-    private boolean active;
+    @Builder.Default
+    private boolean active = true;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "product_product_category", // имя из твоего README
+            name = "product_product_category",
             schema = "seller_application",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private Set<ProductCategoryEntity> categories;
+    private Set<ProductCategory> categories;
 }

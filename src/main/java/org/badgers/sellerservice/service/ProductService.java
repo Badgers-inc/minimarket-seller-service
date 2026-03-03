@@ -3,7 +3,7 @@ package org.badgers.sellerservice.service;
 import lombok.RequiredArgsConstructor;
 import org.badgers.sellerservice.api.dto.ProductCreateRequest;
 import org.badgers.sellerservice.api.dto.ProductUpdateRequest;
-import org.badgers.sellerservice.domain.model.ProductEntity;
+import org.badgers.sellerservice.domain.model.Product;
 import org.badgers.sellerservice.domain.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,32 +19,32 @@ public class ProductService {
 
     @Transactional
     public UUID createProduct(ProductCreateRequest request) {
-        ProductEntity product = ProductEntity.builder()
+        Product product = Product.builder()
                 .productName(request.getProductName())
                 .description(request.getDescription())
                 .articleNumber(request.getArticleNumber())
-                .active(true) // При создании товар активен по умолчанию
+                .active(true)
                 .build();
         return productRepository.save(product).getId();
     }
 
     @Transactional(readOnly = true)
-    public List<ProductEntity> getAllActiveProducts() {
-        // Базовая реализация получения активных товаров
+    public List<Product> getAllActiveProducts() {
+
         return productRepository.findAll().stream()
-                .filter(ProductEntity::isActive)
+                .filter(Product::isActive)
                 .toList();
     }
 
     @Transactional(readOnly = true)
-    public ProductEntity getProductById(UUID id) {
+    public Product getProductById(UUID id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Товар не найден: " + id));
     }
 
     @Transactional
     public void updateProduct(UUID id, ProductUpdateRequest request) {
-        ProductEntity product = getProductById(id);
+        Product product = getProductById(id);
         product.setProductName(request.getProductName());
         product.setDescription(request.getDescription());
         productRepository.save(product);
@@ -52,8 +52,8 @@ public class ProductService {
 
     @Transactional
     public void deactivateProduct(UUID id) {
-        ProductEntity product = getProductById(id);
-        product.setActive(false); // Дезактивация вместо удаления
+        Product product = getProductById(id);
+        product.setActive(false);
         productRepository.save(product);
     }
 }

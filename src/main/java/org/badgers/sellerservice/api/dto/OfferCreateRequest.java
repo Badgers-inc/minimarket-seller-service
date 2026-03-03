@@ -1,17 +1,22 @@
 package org.badgers.sellerservice.api.dto;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Data
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OfferCreateRequest {
-    // ID товара, который мы хотим выставить на продажу
+
     private UUID productId;
 
-    // Цена предложения
     private BigDecimal price;
 
-    // Количество товара в наличии
-    private Integer quantity;
 }
