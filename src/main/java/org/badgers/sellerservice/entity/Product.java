@@ -38,7 +38,7 @@ public class Product {
     @Column(name = "updated_at")
     private OffsetDateTime updatedAt;
 
-    @Column(nullable = false)
+    @Column(name = "active", nullable = false)
     @Builder.Default
     private boolean active = true;
 

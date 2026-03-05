@@ -24,7 +24,7 @@ public class ProductCategory {
     @EqualsAndHashCode.Include
     private String categoryCode;
 
-    @Column(nullable = false)
+    @Column(name = "active", nullable = false)
     @Builder.Default
     private boolean active = true;
 }
