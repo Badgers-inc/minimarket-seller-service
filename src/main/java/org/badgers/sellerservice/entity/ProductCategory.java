@@ -1,4 +1,4 @@
-package org.badgers.sellerservice.domain.model;
+package org.badgers.sellerservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
