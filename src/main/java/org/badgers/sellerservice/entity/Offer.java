@@ -43,6 +43,9 @@ public class Offer {
     @Column(name = "updated_at")
     private OffsetDateTime updatedAt;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     @Column(name = "active", nullable = false)
     @Builder.Default
     private boolean active = true;

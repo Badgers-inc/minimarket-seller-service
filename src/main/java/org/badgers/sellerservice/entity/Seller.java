@@ -23,4 +23,7 @@ public class Seller {
 
     @Column(name = "name", nullable = false, unique = true, length = 50)
     private String name;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active = true;
 }
