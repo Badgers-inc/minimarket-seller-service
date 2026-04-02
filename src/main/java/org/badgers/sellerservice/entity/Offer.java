@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
@@ -43,10 +42,10 @@ public class Offer {
     @Column(name = "updated_at")
     private OffsetDateTime updatedAt;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+    @Column(name = "quantity")
+    private int quantity;
 
-    @Column(name = "active", nullable = false)
+    @Column(name = "active")
     @Builder.Default
     private boolean active = true;
 }

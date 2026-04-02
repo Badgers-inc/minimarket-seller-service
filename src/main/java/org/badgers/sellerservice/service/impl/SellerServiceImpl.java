@@ -6,6 +6,7 @@ import org.badgers.sellerservice.entity.Seller;
 import org.badgers.sellerservice.repository.SellerRepository;
 import org.badgers.sellerservice.service.SellerService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,8 +16,9 @@ public class SellerServiceImpl implements SellerService {
     private final SellerRepository sellerRepository;
 
     @Override
+    @Transactional
     public Seller save(Seller seller) {
-        log.debug("Попытка сохранения продавца: {}", seller);
+        log.debug("Попытка сохранения продавца: {}", seller.getName());
         return sellerRepository.save(seller);
     }
 }
